@@ -1,0 +1,109 @@
+# Unified Dubbing System Configuration
+
+# Audio processing settings
+audio:
+  sample_rate: 16000
+  format: "wav"
+  channels: 1
+  
+# Video processing settings  
+video:
+  fps: 25
+  codec: "libx264"
+  quality: "medium"
+
+# Model configurations
+models:
+  # Speech-to-Text models
+  stt:
+    default: "whisper"
+    whisper:
+      model_size: "base"
+      language: "auto"
+      compute_type: "float16"
+    faster_whisper:
+      model_size: "base" 
+      compute_type: "float16"
+      device: "auto"
+    whisperx:
+      model_size: "base"
+      compute_type: "float16"
+      align_model: true
+    whisper_cpp:
+      model_path: null
+      threads: 4
+      
+  # Text-to-Speech models
+  tts:
+    default: "bark"
+    bark:
+      voice_preset: "v2/en_speaker_6"
+      max_length: 250
+    piper:
+      model: "en_US-lessac-medium"
+      speaker: 0
+      length_scale: 1.0
+      noise_scale: 0.667
+    kokoro:
+      voice: "af_bella"
+    speaches:
+      api_url: "http://localhost:8000"
+      voice: "default"
+      speed: 1.0
+      pitch: 1.0
+      
+  # Voice cloning models
+  voice_cloning:
+    default: "real_time_vc"
+    real_time_vc:
+      encoder_model: "models/voice_cloning/encoder.pt"
+      synthesizer_model: "models/voice_cloning/synthesizer.pt" 
+      vocoder_model: "models/voice_cloning/vocoder.pt"
+      
+  # Lip sync models
+  lip_sync:
+    default: "wav2lip"
+    wav2lip:
+      checkpoint: "checkpoints/wav2lip_gan.pth"
+      face_detect: "s3fd"
+      face_det_batch_size: 16
+      wav2lip_batch_size: 128
+      resize_factor: 1
+      pads: [0, 15, 0, 0]
+
+# File paths
+paths:
+  models: "models/"
+  checkpoints: "checkpoints/"
+  temp: "temp/"
+  output: "output/"
+  
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "dubbing_system.log"
+  
+# Performance settings
+performance:
+  max_parallel_tasks: 2
+  chunk_size: 30  # seconds
+  memory_limit: "4GB"
+  
+# Quality presets
+quality_presets:
+  low:
+    video_resolution: "480p"
+    video_bitrate: "1M"
+    audio_bitrate: "128k"
+    tts_quality: "low"
+  medium:
+    video_resolution: "720p" 
+    video_bitrate: "2M"
+    audio_bitrate: "192k"
+    tts_quality: "medium"
+  high:
+    video_resolution: "1080p"
+    video_bitrate: "4M" 
+    audio_bitrate: "320k"
+    tts_quality: "high"
