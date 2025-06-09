@@ -20,8 +20,8 @@ After creating the repository on GitHub, run these commands in your terminal:
 # Navigate to the project directory
 cd "unified-dubbing-system"
 
-# Add the GitHub repository as remote origin
-git remote add origin https://github.com/HotTrendSpotlight/Unified-Dubbing-Toolkit.git
+# Add the GitHub repository as remote origin (already configured)
+git remote set-url origin https://github.com/Davies-Joseph/Unified-Dubbing-Toolkit.git
 
 # Push the code to GitHub
 git push -u origin main
@@ -29,7 +29,7 @@ git push -u origin main
 
 ## Step 3: Verify Upload
 
-1. Go to your repository: `https://github.com/HotTrendSpotlight/Unified-Dubbing-Toolkit`
+1. Go to your repository: `https://github.com/Davies-Joseph/Unified-Dubbing-Toolkit`
 2. You should see all the files uploaded
 3. The README.md will be displayed automatically
 
@@ -55,7 +55,7 @@ Once pushed to GitHub, anyone can install and use your system:
 
 ```bash
 # Clone the repository
-git clone https://github.com/HotTrendSpotlight/Unified-Dubbing-Toolkit.git
+git clone https://github.com/Davies-Joseph/Unified-Dubbing-Toolkit.git
 cd Unified-Dubbing-Toolkit
 
 # Install dependencies
@@ -69,7 +69,7 @@ python __main__.py --help
 ## 🎉 Your Repository is Ready!
 
 Your Unified Dubbing System is now available at:
-**https://github.com/HotTrendSpotlight/Unified-Dubbing-Toolkit**
+**https://github.com/Davies-Joseph/Unified-Dubbing-Toolkit**
 
 ### Repository Features:
 - ✅ Complete modular codebase
